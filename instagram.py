@@ -28,7 +28,7 @@ class AccountManagement:
                 pass
         return all_dicts
 
-
+    
 
     def edit_account(self, db):
         user = input("Username to edit: ")
@@ -60,7 +60,7 @@ class AccountManagement:
             path = input("Video path: ")
             caption = input("Caption: ")    
 
-            info_dict = new_dict(user, passwrd, path, caption)
+            info_dict = self.new_dict(user, passwrd, path, caption)
             self.save_dict(info_dict)
             self.open_dict()
         elif choice == "2":
@@ -79,14 +79,25 @@ class AccountManagement:
 
 if __name__ == '__main__':
     account_manager = AccountManagement()
-    account_manager.main()
+    #account_manager.main()
+
+
+cl = Client()
+
+
+dict_list = account_manager.open_dict()
+
+user_list = list(dict_list.keys())
+values_list = list(dict_list.values())
+pass_list = []
+path_list = []
+caption_list = []
+for i in values_list:
+    pass_list.append(i[0])
+    path_list.append(i[1])
+    caption_list.append(i[2])
 
 
 
-
-
-
-
-
-
-
+cl.login(user_list[0], pass_list[0])
+cl.clip_upload(path_list[0], caption_list[0])
