@@ -51,7 +51,7 @@ class AccountManagement:
             print("Username not found.")
 
     def main(self):
-        print("Would you like to make a new account (1) or edit an existing account (2)?")
+        print("Would you like to make a new account (1), edit an existing account (2), or view accounts (3)?")
         choice = input("")
         if choice == "1":
 
@@ -77,27 +77,37 @@ class AccountManagement:
             
         
 
+
+
+def run():
+    cl = Client()
+
+
+    dict_list = account_manager.open_dict()
+
+    user_list = list(dict_list.keys())
+    values_list = list(dict_list.values())
+    pass_list = []
+    path_list = []
+    caption_list = []
+    for i in values_list:
+        pass_list.append(i[0])
+        path_list.append(i[1])
+        caption_list.append(i[2])
+
+    for i in range(len(user_list)):
+        
+
+        cl.login(user_list[i], pass_list[i])
+        cl.clip_upload(path_list[i], caption_list[i])
+
+
+
 if __name__ == '__main__':
     account_manager = AccountManagement()
-    #account_manager.main()
-
-
-cl = Client()
-
-
-dict_list = account_manager.open_dict()
-
-user_list = list(dict_list.keys())
-values_list = list(dict_list.values())
-pass_list = []
-path_list = []
-caption_list = []
-for i in values_list:
-    pass_list.append(i[0])
-    path_list.append(i[1])
-    caption_list.append(i[2])
-
-
-
-cl.login(user_list[0], pass_list[0])
-cl.clip_upload(path_list[0], caption_list[0])
+    print("Instagram account manager (1), Instagram poster (2)")
+    choice = input("")
+    if choice == "1":
+        account_manager.main()
+    elif choice == "2":
+        run()
