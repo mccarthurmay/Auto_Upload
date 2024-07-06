@@ -1,4 +1,3 @@
-from instapy_cli import client
 import os
 import pickle
 from instagrapi import Client
@@ -52,7 +51,7 @@ class AccountManagement:
 
     def main(self):
         print("Would you like to make a new account (1), edit an existing account (2), or view accounts (3)?")
-        choice = input("")
+        choice = input(">> ")
         if choice == "1":
 
             user = input("Username: ")
@@ -80,13 +79,13 @@ class AccountManagement:
 
 
 def run():
-    cl = Client()
+    
 
 
     dict_list = account_manager.open_dict()
 
     user_list = list(dict_list.keys())
-    values_list = list(dict_list.values())
+    values_list = list(dict_list.values())                                                                       
     pass_list = []
     path_list = []
     caption_list = []
@@ -96,14 +95,14 @@ def run():
         caption_list.append(i[2])
 
     for i in range(len(user_list)):
-        
 
+        cl = Client()
         cl.login(user_list[i], pass_list[i])
         cl.clip_upload(path_list[i], caption_list[i])
+        cl.logout()
 
 
-
-if __name__ == '__main__':
+while __name__ == '__main__':
     account_manager = AccountManagement()
     print("Instagram account manager (1), Instagram poster (2)")
     choice = input("")
@@ -111,3 +110,5 @@ if __name__ == '__main__':
         account_manager.main()
     elif choice == "2":
         run()
+
+    
