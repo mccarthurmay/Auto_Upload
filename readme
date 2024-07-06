@@ -1,1 +1,10 @@
-Make an Instagram + TikTok autoposting account
+Make an Instagram auto posting account
+
+1. navigate to this folder in terminal
+2. type "py instagram.py"
+
+poster.py is an automatically starting instagram poster that uses the accounts made with the instagram.py account manager. 
+
+
+
+TODO: Integrate tiktok
