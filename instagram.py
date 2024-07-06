@@ -79,7 +79,7 @@ class AccountManagement:
 
 
 def run():
-    
+    account_manager = AccountManagement()
 
 
     dict_list = account_manager.open_dict()
